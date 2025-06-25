@@ -7,13 +7,10 @@ public class Task32 {
             return new ArrayList<>(input);
         }
 
-        // Создаем связный список из ArrayList
         Node head = createLinkedList(input);
 
-        // Обрабатываем согласно алгоритму
         Node resultHead = processLinkedList(head);
 
-        // Конвертируем обратно в ArrayList
         return toArrayList(resultHead);
     }
 
@@ -37,12 +34,10 @@ public class Task32 {
         Node current = head.next;
 
         while (current != null) {
-            // 1. Добавляем элемент в начало
             Node newNode = new Node(current.data);
             newNode.next = resultHead;
             resultHead = newNode;
 
-            // 2. Перемещаем последний в начало (если не последний элемент)
             if (current.next != null) {
                 Node last = getLastNode(resultHead);
                 removeLastNode(resultHead);
